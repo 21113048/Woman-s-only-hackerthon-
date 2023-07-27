@@ -1,66 +1,292 @@
-body {
-    font-family: sans-serif;
-    background-color: #fff;
-  }
-  
-  h1 {
-    font-size: 2em;
-    text-align: center;
-  }
-  
-  header {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  header {
-    background-color: rgb(226, 43, 223);
-  }
-  
-  
-  ul {
-    list-style-type: none;
+/* CSS Reset
+*{
     margin: 0;
     padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+} */
+
+/* CSS variables */
+/* :root{
+    --navbar-height: 40px;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    position: inherit;
+    top: 0px;
+}
+#logo{
+    margin: 0px 26px;
+}
+#logo img{
+    margin: 7px 7px;
+    height: 65px;
+} */
+
+/* Navigation bar: List styling */
+/* #header ul{
+    display: flex;
+} */
+
+/* Navigation */
+/* #navbar{
+    flex-direction: column;
+}
+#navbar ul li a{
+    font-size: 1rem;
+    padding: 0px 7px;
+    padding-bottom: 8px;
+} */
+
+
+
+
+/* body {
+    font-family: sans-serif;
   }
   
-  li {
+  .container {
+    width: 300px;
+    height: 1200px;
+    margin: 0px ;
+  }
+  
+  nav {
+    background-color: red;
+    border-bottom: 1px solid blue;
+  }
+  
+  .logo {
+    float: left;
+    margin-right: 100px;
+  }
+  
+  .logo img {
+    width: 70px;
+  }
+  
+  .right {
+    float: right;
+  }
+  
+  .right li {
     display: inline-block;
-    margin-right: 20px;
+    margin-left: 100px;
+  }
+  
+  .right-text {
+    margin-left: 100px;
   }
   
   a {
     text-decoration: none;
-    color: #fff;
+    color: pink;
+  } */
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: sans-serif;
   }
   
-  a:hover {
+  .cont2 {
+    margin: 0px 0px;
+    padding: 6px;
+    clear: both;
+    background-color: rgb(13, 13, 104);
+    border-radius: 2px solid black;
+    /* border: 2px solid red; */
+    top: 0px;
+    position: sticky;
+    /* display: flex; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+  }
+
+  .job-postings {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .job-postings li {
+    list-style: none;
+    padding: 6px;
+    font-size: 1.3rem;
+  }
+
+  .job-postings li a{
+    color: white;
+    display: block;
+    padding: 3px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+  .job-postings li a:hover{
+    color: black;
+    background-color: white;
+    display: block;
+    padding: 3px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+  
+  nav {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .logo {
+    float: left;
+    margin-right: 0;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .right {
+    float: right;
+  }
+  
+  .right li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .right li img {
+    width: 30px;
+    height: 30px;
+    margin-top: 12px;
+  }
+  
+  .right-text {
+    margin: 10px;
+  }
+  
+  a {
+    text-decoration: none;
     color: #000;
   }
   
-  main {
-    padding: 20px;
+  .right li:last-child {
+    margin-right: 0;
   }
   
-  footer {
+  #search {
+    margin: 3px;
+    float: right;
+  }
+
+  #language {
+    margin: 10px;
+    float: right;
+    font-size: 18px;
+  }
+  
+  input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
     background-color: #000;
     color: #fff;
-    padding: 20px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 220px;
+    /* height: 535px; */
+    height: 635px;
+ }
+#home::before{
+    content: "";
+    background: url("main6.jpg") no-repeat center center/cover; /*starting me ../ isliye lagaya gya bcoz hme sbse pehle css wale folder se bahar nikalna padega.*/
+    position: absolute;
+    top: 130px;
+    left: 0px;
+    height: 600px;
+    width: 100%;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+#home h4{
     text-align: center;
-  }
-  
-  header {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  body {
-    background-image: url("Doc1.png");
-    background-repeat: no-repeat;
-    background-position: center bottom;
+    /* color: white; */
+    font-family: 'Playfair Display', serif;
+}
+
+#images{
     position: relative;
+    height: 544px;
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    /* height: 344px; */
+}
+ /* #images::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}  */
+.item1{
+    padding: 14px;
+}
+#image-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#image-items img{
+    height: 202px;
+}
+
+.benefits{
+    font-size: 1.3rem;
+    padding: 40px;
+    margin: 12px;
+}
+
+.benefits li{
+    padding: 12px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
   }
   
+  .column {
+    flex: 1 1 0%;
+    max-width: 33.33%;
+    padding: 0 1rem;
+  }
   
+  img {
+    width: 100%;
+    height: 280px;
+  }
