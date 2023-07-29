@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of Cities in India</title>
+</head>
+<body>
+  <h1>List of Cities in India</h1>
+  <ul id="cityList"></ul>
+
+  <script>
+    // Function to fetch data from the Geonames API
+    function fetchCities() {
+      // URL for the Geonames API endpoint to get cities in India
+      const apiUrl = 'http://api.geonames.org/searchJSON?country=IN&maxRows=1000&username=shreya25';
+
+      // Fetch the data using the fetch API
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => displayCities(data.geonames))
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Function to display the list of cities on the webpage
+    function displayCities(cities) {
+      const cityList = document.getElementById('cityList');
+
+      cities.forEach(city => {
+        const listItem = document.createElement('li');
+        listItem.textContent = city.name;
+        cityList.appendChild(listItem);
+      });
+    }
+
+    // Call the fetchCities function to retrieve and display the list of cities
+    fetchCities();
+  </script>
+</body>
+</html>
+
