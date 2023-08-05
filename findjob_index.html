@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find a Job</title>
+  <link rel="stylesheet" type="text/css" href="findjob_style.css">
+</head>
+<body>
+    <!-- Content goes here -->
+   <style>
+      html {
+          scroll-behavior: smooth;
+      }
+      .my-section a {
+        text-decoration: none;
+        color: white;
+      }
+  </style>
+    
+       <div class="side-box">
+      <p class="textStyle">RojGaar</p>
+      <div class = "category">
+        <section class="my-section"><a href="#School_link"> <h2 >School</h2></a></section>
+        <section  class="my-section"> <a href="#Textiles_link"> <h2>Textiles</h2></a></section>
+        <section  class="my-section"> <a href="#Sewing_link"> <h2>Sewing Industries</h2></a></section>
+       
+        <section class ="my-section"><a href="#Carpentery_link"> <h2>Carpentery</h2></a></section>
+        <section class="my-section"><a href="#Farmer_link"> <h2>Farmer</h2></a></section>
+       <section class="my-section"> <a href="#Painting_link"> <h2>Painting</h2></a></section>
+        
+       </div>
+        
+      
+
+    </div>
+<div class="getBox">
+  <div class="container">
+    <img class="image_size" src = "assets1/carpenting.png" style="margin-right: 20px, ;" alt="Example Image" >
+    <section id="Carpentery_link"> <h2>Carpenting</h2></section>
+   
+  
+  </div>
+    
+  
+    <div class="box-container" id="bookListCarpentry">
+     
+    </div>
+  <div class="container">
+    <img class="image_size" src="assets1/school.png" style="margin-right: 10px;" alt="Example Image" >
+    <section id="Farmer_link"> <h2>Farming</h2></section>
+    </div>
+  <div class="box-container" id="bookListFarming"></div>
+  <div class="container">
+    <img class="image_size" src="assets1/house_painting.png" style="margin-right: 10px;" alt="Example Image" >
+    <section id="Painting_link"> <h2>House Painters</h2></section>
+   </div>
+  <div class="box-container" id="bookListPainter"></div>
+  <div class="container"> 
+    <img class="image_size" src="assets1//school.png" style="margin-right: 10px;" alt="Example Image" >
+    <section id="School_link"> <h2>Schools</h2></section>
+   </div>
+
+  <div class="box-container" id="Schools"></div>
+  <div  class="container"> 
+    <img class="image_size" src="assets1//sewing.png" style="margin-right: 10px;" alt="Example Image" >
+    <section id="Sewing_link"><h2>Sewing Industries</h2></section>
+    </div>
+  <div class="box-container" id="SewingIndusties"></div>
+  <div class="container">
+    <img class="image_size" src="assets1//weaving.png" style="margin-right: 10px;" alt="Example Image" >
+    <section id="Textiles_link"><h2>Textile Industries</h2></section>
+    
+  </div>
+ <div class="box-container" id="Textiles">
+  <img class="image_size" src="assets1//sewing.jpeg" style="margin-right: 10px;" alt="Example Image" >
+ </div>
+ 
+</div>
+
+
+  <script type="module">
+    
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js" ;
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+    //import { initializeApp } from "firebase/app";
+    //import { getFirestore } from "firebase/firestore";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBE4vByEitEPpzJ_Zq3GpP3l7GRUqGmo1Y",
+      authDomain: "rojgaar-2a755.firebaseapp.com",
+      databaseURL: "https://rojgaar-2a755-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "rojgaar-2a755",
+      storageBucket: "rojgaar-2a755.appspot.com",
+      messagingSenderId: "634561181085",
+      appId: "1:634561181085:web:5a0ef58877240c2ef76b74",
+      measurementId: "G-0Y06DKQWSP"
+      };
+
+
+    // Initialize Firebase
+  const firebase = initializeApp(firebaseConfig);
+  const bookListCarpentry = document.getElementById("bookListCarpentry");
+  const bookListFarming = document.getElementById("bookListFarming");
+  const bookListPainter = document.getElementById("bookListPainter");
+  const Schools = document.getElementById("Schools");
+  const SewingIndusties = document.getElementById("SewingIndusties");
+  const Textiles = document.getElementById("Textiles");
+
+  bookListCarpentry.innerHTML = "";
+  bookListFarming.innerHTML="";
+  bookListPainter.innerHTML="";
+  Schools.innerHTML="";
+  SewingIndusties.innerHTML="";
+  Textiles.innerHTML="";
+
+  const db = getFirestore();
+  const colRef = collection(db, 'companies/Carpenting/carpenting');
+  getDocs(colRef)
+    .then((snapshot)=>{
+      snapshot.docs.forEach((doc)=>{
+        const bookData = doc.data();
+        
+            //const boxItem = document.getElementsByClassName("box")
+            const bookItem = document.createElement("div");
+            bookItem.classList.add("box");
+            bookItem.innerHTML = `<div class="box-content">Company: ${bookData.Company_name}\n  Location: ${bookData.Location}\nSalary: ${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            bookListCarpentry.appendChild(bookItem);
+      })
+    })
+    .catch((error) => console.error("Error getting books:", error));
+
+  const colRef1 = collection(db, 'companies/Farming/farming');
+  getDocs(colRef1)
+    .then((snapshot)=>{
+      snapshot.docs.forEach((doc)=>{
+        const bookData = doc.data();
+        const bookItem = document.createElement("div");
+            bookItem.classList.add("box");
+            bookItem.innerHTML = `<div class="box-content">Company: ${bookData.Company_name}\n  Location: ${bookData.Location}\nSalary: ${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            bookListFarming.appendChild(bookItem);
+      })
+    })
+  .catch((error) => console.error("Error getting books:", error));
+  const colRef2 = collection(db, 'companies/Painter/Home_painting');
+  getDocs(colRef2)
+    .then((snapshot)=>{
+      snapshot.docs.forEach((doc)=>{
+        const bookData = doc.data();
+            //const bookItem = document.createElement("div");
+            const bookItem = document.createElement("div");
+            bookItem.classList.add("box");
+            bookItem.innerHTML = `<div class="box-content">${bookData.Company_name}\n  ${bookData.Location}\n${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            bookListPainter.appendChild(bookItem);
+      })
+    })
+  .catch((error) => console.error("Error getting books:", error));
+  const colRef3 = collection(db, 'companies/Schools/Schools');
+  getDocs(colRef3)
+    .then((snapshot)=>{
+      snapshot.docs.forEach((doc)=>{
+        const bookData = doc.data();
+        const bookItem = document.createElement("div");
+            bookItem.classList.add("box");
+            const imageElement = document.createElement("img");
+          bookItem.innerHTML = `<div class="box-content">${bookData.Company_name}\n  ${bookData.Location}\n${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            Schools.appendChild(bookItem);
+      })
+    })
+    .catch((error) => console.error("Error getting books:", error));
+  
+  const colRef4 = collection(db, 'companies/SewingIndusties/sewing');
+  getDocs(colRef4)
+    .then((snapshot)=>{
+      snapshot.docs.forEach((doc)=>{
+        const bookData = doc.data();
+        const bookItem = document.createElement("div");
+            bookItem.classList.add("box");
+            bookItem.innerHTML = `<div class="box-content">${bookData.Company_name}\n  ${bookData.Location}\n${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            SewingIndusties.appendChild(bookItem);
+      })
+    })
+    .catch((error) => console.error("Error getting books:", error));
+    const colRef5 = collection(db, '/companies/Textiles /textile_industirs');
+    getDocs(colRef5)
+    .then((snapshot)=>{
+      snapshot.docs.forEach((doc)=>{
+        const bookData = doc.data();
+        const bookItem = document.createElement("div");
+            bookItem.classList.add("box");
+            bookItem.innerHTML = `<div class="box-content">${bookData.Company_name}\n  ${bookData.Location}\n${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            Textiles.appendChild(bookItem);
+      })
+    })
+    
+    .catch((error) => console.error("Error getting books:", error)
+    
+    );
+    
+
+    // Add an event listener to the "Show Form" button
+document.getElementById("show-form-button").addEventListener("click", function () {
+    // Show the form when the button is clicked
+    document.getElementById("user-form-container").style.display = "block";
+});
+
+// Add an event listener to the "Submit" button inside the form
+document.getElementById("submit-button").addEventListener("click", function () {
+    // Get the values from the input fields
+    var Company_name = document.getElementById("Company_name").value;
+    var Location = document.getElementById("Location").value;
+    var userData={
+      Company_name:Company_name,
+      Location:Location,
+    }
+    db.collection("companies/Schools/Schools").add(userData)
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+            // Display a success message or perform any other actions
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+            // Display an error message or perform any other actions
+        });
+
+    // Display the submitted user info in the output div
+    var outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = "Submitted User Info:<br>Company_name: " + Company_name + "<br>Location: " + Location;
+
+    // Hide the form after submission (optional, you can keep it visible if needed)
+    document.getElementById("user-form-container").style.display = "none";
+});
+
+
+   
+  </script>
+</body>
+</html>
