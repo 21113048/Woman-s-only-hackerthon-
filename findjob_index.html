@@ -6,29 +6,37 @@
 </head>
 <body>
     <!-- Content goes here -->
+   <style>
+      html {
+          scroll-behavior: smooth;
+      }
+      .my-section a {
+        text-decoration: none;
+        color: white;
+      }
+  </style>
     
-    <div class="side-box">
+       <div class="side-box">
       <p class="textStyle">RojGaar</p>
       <div class = "category">
-        <h2>School</h2>
-        <h2>Textiles</h2>
-        <h2>Sewing Industries</h2>
-        <h2>Agriculture</h2>
-        <h2>Carpentery</h2>
-        <h2>Farmer</h2>
-        <h2>Painting</h2></div>
+        <section class="my-section"><a href="#School_link"> <h2 >School</h2></a></section>
+        <section  class="my-section"> <a href="#Textiles_link"> <h2>Textiles</h2></a></section>
+        <section  class="my-section"> <a href="#Sewing_link"> <h2>Sewing Industries</h2></a></section>
+        <section class="my-section"> <a href="#Agriculture_link"><h2>Agriculture</h2></a></section>
+        <section class ="my-section"><a href="#Carpentery_link"> <h2>Carpentery</h2></a></section>
+        <section class="my-section"><a href="#Farmer_link"> <h2>Farmer</h2></a></section>
+       <section class="my-section"> <a href="#Painting_link"> <h2>Painting</h2></a></section>
+        
+       </div>
         
       
 
     </div>
-    
-   
-</div>
-
 <div class="getBox">
   <div class="container">
     <img class="image_size" src = "assets1/carpenting.png" style="margin-right: 20px, ;" alt="Example Image" >
-    <h2>Carpenting</h2>
+    <section id="Carpentery_link"> <h2>Carpenting</h2></section>
+   
   
   </div>
     
@@ -38,24 +46,29 @@
     </div>
   <div class="container">
     <img class="image_size" src="assets1/school.png" style="margin-right: 10px;" alt="Example Image" >
-    <h2>Farming</h2></div>
+    <section id="Farmer_link"> <h2>Farming</h2></section>
+    </div>
   <div class="box-container" id="bookListFarming"></div>
   <div class="container">
     <img class="image_size" src="assets1/house_painting.png" style="margin-right: 10px;" alt="Example Image" >
-    <h2>House Painters</h2></div>
+    <section id="Painting_link"> <h2>House Painters</h2></section>
+   </div>
   <div class="box-container" id="bookListPainter"></div>
   <div class="container"> 
     <img class="image_size" src="assets1//school.png" style="margin-right: 10px;" alt="Example Image" >
-    <h2>Schools</h2></div>
+    <section id="School_link"> <h2>Schools</h2></section>
+   </div>
 
   <div class="box-container" id="Schools"></div>
   <div  class="container"> 
     <img class="image_size" src="assets1//sewing.png" style="margin-right: 10px;" alt="Example Image" >
-    <h2>Sewing Industries</h2></div>
+    <section id="Sewing_link"><h2>Sewing Industries</h2></section>
+    </div>
   <div class="box-container" id="SewingIndusties"></div>
   <div class="container">
     <img class="image_size" src="assets1//weaving.png" style="margin-right: 10px;" alt="Example Image" >
-    <h2>Textiles</h2>
+    <section id="Textiles_link"><h2>Textile Industries</h2></section>
+    
   </div>
  <div class="box-container" id="Textiles">
   <img class="image_size" src="assets1//sewing.jpeg" style="margin-right: 10px;" alt="Example Image" >
