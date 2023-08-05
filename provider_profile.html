@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('bgcolor1.png');
+    }
+    .form-container {
+      border: 1px solid #232323;
+      padding: 20px;
+      width: 300px;
+      max-width: 90%; /* Added max-width to make it responsive */
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    .form-container h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-top: 5px;
+      margin-bottom: 25px;
+    }
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="number"] {
+      width: 95%;
+      padding: 4px;
+      font-size: 14px;
+    }
+    .form-container input[type="submit"] {
+      padding: 5px 5px;
+      background-color: #13572E;
+      font-size: 16px;
+      text-align: center;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 98%;
+      margin-top: 15px;
+      width: 90px; /* Fixed width for the oval shape */
+      height: 40px; /* Fixed height for the oval shape */
+      border-radius: 25px; /* Half of the height for an oval shape */
+      margin-left: 100px;
+    }
+    .form-container input[type="submit"]:hover {
+      background-color: #13572E;
+      transform: scale(1.1);
+      align-items: center;
+    }
+
+    /* Media Query for Tablets and Larger Devices */
+    @media screen and (min-width: 768px) {
+      .form-container {
+        width: 400px; /* Increase the width for larger screens */
+      }
+    }
+
+    /* Media Query for Smaller Devices */
+    @media screen and (max-width: 480px) {
+      .form-container {
+        width: 90%; /* Adjust the width for smaller screens */
+      }
+      .form-container input[type="submit"] {
+        margin-left: 0; /* Reset the left margin for the submit button */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Provide Your Details Below!</h2>
+     <form action="provider.php" id = "php_file" method="post"> 
+
+        <label for="Username">Username:</label>
+        <input type="text" id="Username" name="Username" required>
+
+        <label for="Password">Password:</label>
+        <input type="number" id="Password" name="Password" required>
+
+        <label for="company_name">Name of Company:</label>
+        <input type="text" id="company_name" name="company_name" required>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="job_role">Job Role:</label>
+        <input type="text" id="job_role" name="job_role" required>
+
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" required>
+
+        <label for="vacancy">Number of Vacancies:</label>
+        <input type="number" id="vacancy" name="vacancy" required>
+
+        <input type="submit" value="Signup">
+     </form>
+  </div>
+  
+<!-- <script>
+     document.getElementById("php_file").addEventListener("click", function() {
+            window.location.href = "provider.php";
+    });
+</script> -->
+<script>
+    document.getElementById("php_file").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        window.location.href = "provider.php"; // Redirect to the PHP file
+    });
+</script>
+</body>
+</html>
