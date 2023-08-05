@@ -86,9 +86,12 @@ nav {
 
 .right {
   /* float: right; */
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  justify-content: flex-end;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
