@@ -140,7 +140,7 @@
         const bookData = doc.data();
         const bookItem = document.createElement("div");
             bookItem.classList.add("box");
-            bookItem.innerHTML = `<div class="box-content">${bookData.Company_name}\n  ${bookData.Location}\n${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
+            bookItem.innerHTML = `<div class="box-content">Company: ${bookData.Company_name}\n  Location: ${bookData.Location}\nSalary: ${bookData.Stipend}\n<a href="${bookData.job_post}" target="_blank"><img class="image_size" src="assets1//apply.png" style="margin-right: 10px;" alt="Example Image" ></a></div>`;
             bookListFarming.appendChild(bookItem);
       })
     })
