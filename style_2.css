@@ -381,7 +381,7 @@ height: fit-content;
 }
 
 .AboutUs p {
-  text-align: center;
+/*   text-align: center; */
   font-size: 25px;
   margin-top: 12px;
   /* padding: 4px; */
