@@ -365,7 +365,7 @@ height: fit-content;
   font-family: "Britannic Bold";
   text-align: center;
   cursor: pointer;
-  /* margin-left: 40%; */
+  margin-left: 40%;
 }
 
 .AboutUs h1:hover{
@@ -381,7 +381,8 @@ height: fit-content;
 }
 
 .AboutUs p {
-  font-size: 23px;
+  text-align: center;
+  font-size: 25px;
   margin-top: 12px;
   /* padding: 4px; */
   font-family: fangsong
