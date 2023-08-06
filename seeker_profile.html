@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Job Seeker Login</title>
@@ -17,7 +17,7 @@
       margin: 0 auto;
       margin-top: 100px;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(76, 193, 160, 0.8);
       border: 1px solid #ccc;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -75,7 +75,7 @@
 <body>
   <div class="login-container">
     <h2>Job Seeker Sign Up</h2>
-    <form action="./seeker.php" id = "seeker" method="post">
+    <form class="form-group">
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -83,7 +83,7 @@
 
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="number" id="password" name="password" required>
+        <input type="text" id="password" name="password" required>
       </div>
 
       <div class="form-group">
@@ -108,15 +108,96 @@
           <option value="other">Other</option>
         </select>
       </div>
+      <button type="submit" id="submit" value="submit"><a href="./home.html">Submit</a></button>
 
-      <button type="submit" class="login-button">Sign Up</button>
+      <!-- <input type = "submit" value="submit" id="submit" > -->
     </form>
   </div>
-<script>
-    document.getElementById("seeker").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        window.location.href = "seeker.php"; // Redirect to the PHP file
+<script type="module">
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getDatabase,ref, set  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB_B9hQFMgGrALVsGIS4JfDFOih81WP-kM",
+  authDomain: "rojgar-efdf2.firebaseapp.com",
+  databaseURL: "https://rojgar-efdf2-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "rojgar-efdf2",
+  storageBucket: "rojgar-efdf2.appspot.com",
+  messagingSenderId: "294579328190",
+  appId: "1:294579328190:web:988893e587aa4e9eb2baef",
+  measurementId: "G-EMPEHQW8BC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+var  messageRef = ref(db, 'messages');
+//var messageRef = db.ref('messages');
+//const analytics = getAnalytics(app);
+
+    document.getElementById("submit").addEventListener("click", function(e) {
+      e.preventDefault();
+        set(ref(db, 'user/' + document.getElementById("username").value),
+        {
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+          job_role: document.getElementById("job_role").value,
+          location: document.getElementById("location").value,
+          education: document.getElementById("education").value,
+        }
+       
+        
+        )// Prevent the default form submission
+        //window.location.href = "seeker.php"; // Redirect to the PHP file
     });
+  
+    /*function submitForm(e){
+        e.preventDefault();
+        // Get values
+  var username = getInputVal('username');
+  var password = getInputVal('password');
+  var job_role = getInputVal('job_role');
+  var location = getInputVal('location');
+  var education = getInputVal('education');
+
+  // Save message
+  saveMessage(username, password, job_role, location, education);
+
+  // Show alert
+  document.querySelector('.alert').style.display = 'block';
+
+  // Hide alert after 3 seconds
+  setTimeout(function(){
+    document.querySelector('.alert').style.display = 'none';
+  },3000);
+
+  // Clear form
+  document.getElementById('seeker').reset();
+}
+
+// Function to get get form values
+function getInputVal(id){
+  return document.getElementById(id).value;
+}
+
+// Save message to firebase
+function saveMessage(username, password, job_role, location, education){
+  var newMessageRef = messageRef.push();
+  newMessageRef.set({
+    username: username,
+    password:password,
+    job_role:job_role,
+    location:location,
+    education:education
+  });
+}*/
+    
+
 </script>
 </body>
 </html> 
